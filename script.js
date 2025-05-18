@@ -3,9 +3,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const generateBtn = document.getElementById('generate-btn');
     const downloadBtn = document.getElementById('download-btn');
     const posterContainer = document.getElementById('poster-container');
+    const sectionsCountInput = document.getElementById('sections-count');
+    const updateSectionsBtn = document.getElementById('update-sections-btn');
+    const sectionsContainer = document.getElementById('sections-container');
+    const backgroundOpacitySlider = document.getElementById('background-opacity');
+    const opacityValueDisplay = document.getElementById('opacity-value');
     
-    // 默认logo - 如果用户未上传
+    // 默认logo和背景图片 - 如果用户未上传
     let logoUrl = null;
+    let backgroundImageUrl = null;
+    
+    // 监听背景透明度变化
+    backgroundOpacitySlider.addEventListener('input', function() {
+        opacityValueDisplay.textContent = this.value;
+    });
     
     // 处理logo上传
     const logoUpload = document.getElementById('logo-upload');
@@ -20,6 +31,81 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // 处理背景图片上传
+    const backgroundImageUpload = document.getElementById('background-image');
+    backgroundImageUpload.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if(file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                backgroundImageUrl = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    
+    // 更新内容部分数量
+    updateSectionsBtn.addEventListener('click', function() {
+        const count = parseInt(sectionsCountInput.value);
+        if(count < 1 || count > 6) {
+            alert('内容部分数量应在1到6之间');
+            return;
+        }
+        
+        updateSectionInputs(count);
+    });
+    
+    // 根据数量更新内容输入区域
+    function updateSectionInputs(count) {
+        // 保存现有输入的值
+        const existingValues = [];
+        const existingSections = sectionsContainer.querySelectorAll('.section-input');
+        
+        existingSections.forEach((section, index) => {
+            const sectionNum = index + 1;
+            existingValues.push({
+                title: document.getElementById(`section${sectionNum}-title`).value,
+                emoji: document.getElementById(`section${sectionNum}-emoji`).value,
+                content: document.getElementById(`section${sectionNum}-content`).value
+            });
+        });
+        
+        // 清空现有输入区域
+        sectionsContainer.innerHTML = '';
+        
+        // 创建指定数量的内容输入区域
+        for(let i = 1; i <= count; i++) {
+            const values = existingValues[i-1] || { title: `第${i}部分标题`, emoji: '', content: '' };
+            
+            const sectionDiv = document.createElement('div');
+            sectionDiv.className = 'form-group section-input';
+            sectionDiv.dataset.section = i;
+            
+            sectionDiv.innerHTML = `
+                <label>第${i}部分内容</label>
+                <div class="title-with-emoji">
+                    <input type="text" id="section${i}-title" placeholder="输入第${i}部分标题" value="${values.title}">
+                    <select id="section${i}-emoji" class="emoji-select">
+                        <option value="">无表情</option>
+                        <option value="📊" ${values.emoji === '📊' ? 'selected' : ''}>📊</option>
+                        <option value="📈" ${values.emoji === '📈' ? 'selected' : ''}>📈</option>
+                        <option value="📉" ${values.emoji === '📉' ? 'selected' : ''}>📉</option>
+                        <option value="📋" ${values.emoji === '📋' ? 'selected' : ''}>📋</option>
+                        <option value="💡" ${values.emoji === '💡' ? 'selected' : ''}>💡</option>
+                        <option value="🔍" ${values.emoji === '🔍' ? 'selected' : ''}>🔍</option>
+                        <option value="👍" ${values.emoji === '👍' ? 'selected' : ''}>👍</option>
+                        <option value="💯" ${values.emoji === '💯' ? 'selected' : ''}>💯</option>
+                        <option value="✅" ${values.emoji === '✅' ? 'selected' : ''}>✅</option>
+                        <option value="🚀" ${values.emoji === '🚀' ? 'selected' : ''}>🚀</option>
+                    </select>
+                </div>
+                <textarea id="section${i}-content" placeholder="输入第${i}部分内容">${values.content}</textarea>
+            `;
+            
+            sectionsContainer.appendChild(sectionDiv);
+        }
+    }
+    
     // 生成海报
     generateBtn.addEventListener('click', function() {
         // 获取用户输入
@@ -29,62 +115,56 @@ document.addEventListener('DOMContentLoaded', function() {
         const bgColor = document.getElementById('background-color').value;
         const textColor = document.getElementById('text-color').value;
         const posterWidth = document.getElementById('poster-width').value || 400;
+        const backgroundOpacity = document.getElementById('background-opacity').value;
+        const useOverlay = document.getElementById('background-overlay').checked;
         
-        // 获取各部分内容
-        const section1Title = document.getElementById('section1-title').value || '项目看板';
-        const section1Emoji = document.getElementById('section1-emoji').value;
-        const section1Content = document.getElementById('section1-content').value;
+        // 获取内容部分的数量
+        const sectionsCount = document.querySelectorAll('.section-input').length;
         
-        const section2Title = document.getElementById('section2-title').value || '数据代!';
-        const section2Emoji = document.getElementById('section2-emoji').value;
-        const section2Content = document.getElementById('section2-content').value;
-        
-        const section3Title = document.getElementById('section3-title').value || '好实用!';
-        const section3Emoji = document.getElementById('section3-emoji').value;
-        const section3Content = document.getElementById('section3-content').value;
-        
-        // 创建海报HTML结构
-        const posterHTML = `
+        // 开始构建海报HTML
+        let posterHTML = `
             <div class="poster" style="background-color: ${bgColor}; width: ${posterWidth}px; color: ${textColor};">
+        `;
+        
+        // 添加背景图片（如果有）
+        if(backgroundImageUrl) {
+            posterHTML += `<img src="${backgroundImageUrl}" class="poster-bg" style="opacity: ${backgroundOpacity};">`;
+            if(useOverlay) {
+                posterHTML += `<div class="poster-overlay"></div>`;
+            }
+        }
+        
+        // 添加标题部分
+        posterHTML += `
                 <div class="poster-header" style="background-color: ${themeColor};">
                     ${logoUrl ? `<img src="${logoUrl}" class="poster-logo" alt="Logo">` : ''}
                     <div class="poster-title">${title}</div>
                     <div class="poster-subtitle">${subtitle}</div>
                 </div>
-                
+        `;
+        
+        // 添加各内容部分
+        for(let i = 1; i <= sectionsCount; i++) {
+            const sectionTitle = document.getElementById(`section${i}-title`).value || `第${i}部分`;
+            const sectionEmoji = document.getElementById(`section${i}-emoji`).value;
+            const sectionContent = document.getElementById(`section${i}-content`).value;
+            
+            posterHTML += `
                 <div class="poster-section">
                     <div class="section-title">
-                        <span class="section-number" style="background-color: ${themeColor};">01</span>
-                        ${section1Title}
-                        ${section1Emoji ? `<span class="section-emoji">${section1Emoji}</span>` : ''}
+                        <span class="section-number" style="background-color: ${themeColor};">${String(i).padStart(2, '0')}</span>
+                        ${sectionTitle}
+                        ${sectionEmoji ? `<span class="section-emoji">${sectionEmoji}</span>` : ''}
                     </div>
                     <div class="section-content">
-                        ${formatContent(section1Content)}
+                        ${formatContent(sectionContent)}
                     </div>
                 </div>
-                
-                <div class="poster-section">
-                    <div class="section-title">
-                        <span class="section-number" style="background-color: ${themeColor};">02</span>
-                        ${section2Title}
-                        ${section2Emoji ? `<span class="section-emoji">${section2Emoji}</span>` : ''}
-                    </div>
-                    <div class="section-content">
-                        ${formatContent(section2Content)}
-                    </div>
-                </div>
-                
-                <div class="poster-section">
-                    <div class="section-title">
-                        <span class="section-number" style="background-color: ${themeColor};">03</span>
-                        ${section3Title}
-                        ${section3Emoji ? `<span class="section-emoji">${section3Emoji}</span>` : ''}
-                    </div>
-                    <div class="section-content">
-                        ${formatContent(section3Content)}
-                    </div>
-                </div>
-                
+            `;
+        }
+        
+        // 添加页脚
+        posterHTML += `
                 <div class="poster-footer">
                     数据可视化海报生成器 · ${new Date().getFullYear()}
                 </div>

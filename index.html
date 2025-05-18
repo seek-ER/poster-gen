@@ -21,62 +21,72 @@
                     <input type="text" id="poster-subtitle" placeholder="输入海报副标题" value="项目看板面壁来袭！">
                 </div>
                 
-                <!-- 第一部分内容 -->
+                <!-- 内容部分数量设置 -->
                 <div class="form-group">
-                    <label>第一部分内容</label>
-                    <div class="title-with-emoji">
-                        <input type="text" id="section1-title" placeholder="输入第一部分标题" value="项目看板">
-                        <select id="section1-emoji" class="emoji-select">
-                            <option value="">无表情</option>
-                            <option value="📊" selected>📊</option>
-                            <option value="📈">📈</option>
-                            <option value="📉">📉</option>
-                            <option value="📋">📋</option>
-                            <option value="🔍">🔍</option>
-                            <option value="📱">📱</option>
-                        </select>
-                    </div>
-                    <textarea id="section1-content" placeholder="输入第一部分内容">● 直观数据展示：直观、清晰、简明，便于浏览
+                    <label for="sections-count">内容部分数量</label>
+                    <input type="number" id="sections-count" min="1" max="6" value="3">
+                    <button id="update-sections-btn" class="small-btn">更新</button>
+                </div>
+                
+                <!-- 内容部分容器 -->
+                <div id="sections-container">
+                    <!-- 第一部分内容 -->
+                    <div class="form-group section-input" data-section="1">
+                        <label>第一部分内容</label>
+                        <div class="title-with-emoji">
+                            <input type="text" id="section1-title" placeholder="输入第一部分标题" value="项目看板">
+                            <select id="section1-emoji" class="emoji-select">
+                                <option value="">无表情</option>
+                                <option value="📊" selected>📊</option>
+                                <option value="📈">📈</option>
+                                <option value="📉">📉</option>
+                                <option value="📋">📋</option>
+                                <option value="🔍">🔍</option>
+                                <option value="📱">📱</option>
+                            </select>
+                        </div>
+                        <textarea id="section1-content" placeholder="输入第一部分内容">● 直观数据展示：直观、清晰、简明，便于浏览
 ● 功能全面：项目进度、计划、资源、风险等维度多角度展示
 ● 多维度透视：数据钻取、筛选、 排序等功能一应俱全</textarea>
-                </div>
-                
-                <!-- 第二部分内容 -->
-                <div class="form-group">
-                    <label>第二部分内容</label>
-                    <div class="title-with-emoji">
-                        <input type="text" id="section2-title" placeholder="输入第二部分标题" value="数据代">
-                        <select id="section2-emoji" class="emoji-select">
-                            <option value="">无表情</option>
-                            <option value="📊">📊</option>
-                            <option value="📈" selected>📈</option>
-                            <option value="📉">📉</option>
-                            <option value="📋">📋</option>
-                            <option value="💡">💡</option>
-                            <option value="🔍">🔍</option>
-                        </select>
                     </div>
-                    <textarea id="section2-content" placeholder="输入第二部分内容">● 数据样样代表：更丰富维度数据，更直观趋势反映
+                    
+                    <!-- 第二部分内容 -->
+                    <div class="form-group section-input" data-section="2">
+                        <label>第二部分内容</label>
+                        <div class="title-with-emoji">
+                            <input type="text" id="section2-title" placeholder="输入第二部分标题" value="数据代">
+                            <select id="section2-emoji" class="emoji-select">
+                                <option value="">无表情</option>
+                                <option value="📊">📊</option>
+                                <option value="📈" selected>📈</option>
+                                <option value="📉">📉</option>
+                                <option value="📋">📋</option>
+                                <option value="💡">💡</option>
+                                <option value="🔍">🔍</option>
+                            </select>
+                        </div>
+                        <textarea id="section2-content" placeholder="输入第二部分内容">● 数据样样代表：更丰富维度数据，更直观趋势反映
 ● 数据多维展示：不同维度切换分析 一键掌握项目全貌</textarea>
-                </div>
-                
-                <!-- 第三部分内容 -->
-                <div class="form-group">
-                    <label>第三部分内容</label>
-                    <div class="title-with-emoji">
-                        <input type="text" id="section3-title" placeholder="输入第三部分标题" value="好实用">
-                        <select id="section3-emoji" class="emoji-select">
-                            <option value="">无表情</option>
-                            <option value="📊">📊</option>
-                            <option value="📈">📈</option>
-                            <option value="👍" selected>👍</option>
-                            <option value="💯">💯</option>
-                            <option value="✅">✅</option>
-                            <option value="🚀">🚀</option>
-                        </select>
                     </div>
-                    <textarea id="section3-content" placeholder="输入第三部分内容">● 项目进展更加透明：文档、任务、进度一目了然
+                    
+                    <!-- 第三部分内容 -->
+                    <div class="form-group section-input" data-section="3">
+                        <label>第三部分内容</label>
+                        <div class="title-with-emoji">
+                            <input type="text" id="section3-title" placeholder="输入第三部分标题" value="好实用">
+                            <select id="section3-emoji" class="emoji-select">
+                                <option value="">无表情</option>
+                                <option value="📊">📊</option>
+                                <option value="📈">📈</option>
+                                <option value="👍" selected>👍</option>
+                                <option value="💯">💯</option>
+                                <option value="✅">✅</option>
+                                <option value="🚀">🚀</option>
+                            </select>
+                        </div>
+                        <textarea id="section3-content" placeholder="输入第三部分内容">● 项目进展更加透明：文档、任务、进度一目了然
 ● 更高效的管理模式：聚焦关键，精准把控</textarea>
+                    </div>
                 </div>
             </div>
             
@@ -90,6 +100,21 @@
                     <label for="background-color">背景颜色</label>
                     <input type="color" id="background-color" value="#E3F2FD">
                 </div>
+                
+                <div class="form-group">
+                    <label for="background-image">背景图片</label>
+                    <input type="file" id="background-image" accept="image/*">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="background-overlay">
+                        <label for="background-overlay">添加半透明覆盖</label>
+                    </div>
+                    <div class="range-group">
+                        <label for="background-opacity">背景透明度</label>
+                        <input type="range" id="background-opacity" min="0.1" max="1" step="0.1" value="0.2">
+                        <span id="opacity-value">0.2</span>
+                    </div>
+                </div>
+                
                 <div class="form-group">
                     <label for="logo-upload">上传Logo</label>
                     <input type="file" id="logo-upload" accept="image/*">
