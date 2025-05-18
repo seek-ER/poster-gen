@@ -33,8 +33,17 @@
                     <!-- 第一部分内容 -->
                     <div class="form-group section-input" data-section="1">
                         <label>第一部分内容</label>
+                        <!-- 主标题和副标题 -->
+                        <div class="form-group">
+                            <label for="section1-main-title">主标题</label>
+                            <input type="text" id="section1-main-title" placeholder="输入主标题" value="项目看板">
+                        </div>
+                        <div class="form-group">
+                            <label for="section1-secondary-title">副标题</label>
+                            <input type="text" id="section1-secondary-title" placeholder="输入副标题" value="重点关注，抓重点，补短板，核心指标智能监控">
+                        </div>
                         <div class="title-with-emoji">
-                            <input type="text" id="section1-title" placeholder="输入第一部分标题" value="项目看板">
+                            <input type="text" id="section1-title" placeholder="输入内容标题" value="分板块呈现核心数据，精准契合项目管理逻辑">
                             <select id="section1-emoji" class="emoji-select">
                                 <option value="">无表情</option>
                                 <option value="📊" selected>📊</option>
@@ -43,18 +52,35 @@
                                 <option value="📋">📋</option>
                                 <option value="🔍">🔍</option>
                                 <option value="📱">📱</option>
+                                <option value="⚙️">⚙️</option>
+                                <option value="🔔">🔔</option>
                             </select>
                         </div>
                         <textarea id="section1-content" placeholder="输入第一部分内容">● 直观数据展示：直观、清晰、简明，便于浏览
 ● 功能全面：项目进度、计划、资源、风险等维度多角度展示
 ● 多维度透视：数据钻取、筛选、 排序等功能一应俱全</textarea>
+                        
+                        <!-- 图片上传 -->
+                        <div class="form-group">
+                            <label for="section1-image">上传内容图片</label>
+                            <input type="file" id="section1-image" accept="image/*" class="section-image-upload">
+                        </div>
                     </div>
                     
                     <!-- 第二部分内容 -->
                     <div class="form-group section-input" data-section="2">
                         <label>第二部分内容</label>
+                        <!-- 主标题和副标题 -->
+                        <div class="form-group">
+                            <label for="section2-main-title">主标题</label>
+                            <input type="text" id="section2-main-title" placeholder="输入主标题" value="主营（物业收费、满意度）">
+                        </div>
+                        <div class="form-group">
+                            <label for="section2-secondary-title">副标题</label>
+                            <input type="text" id="section2-secondary-title" placeholder="输入副标题" value="直观数据展示，一目了然">
+                        </div>
                         <div class="title-with-emoji">
-                            <input type="text" id="section2-title" placeholder="输入第二部分标题" value="数据代">
+                            <input type="text" id="section2-title" placeholder="输入内容标题" value="物业收费">
                             <select id="section2-emoji" class="emoji-select">
                                 <option value="">无表情</option>
                                 <option value="📊">📊</option>
@@ -63,17 +89,35 @@
                                 <option value="📋">📋</option>
                                 <option value="💡">💡</option>
                                 <option value="🔍">🔍</option>
+                                <option value="💰">💰</option>
+                                <option value="🏢">🏢</option>
                             </select>
                         </div>
-                        <textarea id="section2-content" placeholder="输入第二部分内容">● 数据样样代表：更丰富维度数据，更直观趋势反映
-● 数据多维展示：不同维度切换分析 一键掌握项目全貌</textarea>
+                        <textarea id="section2-content" placeholder="输入第二部分内容">● 今日收款总额：23.48万（日环比 ▲3.23%）
+● 年累计主营收费率：76.86%（年同比 ▲3.23%）
+● 总体满意度：78.38%（年同比 ▲3.23%）</textarea>
+                        
+                        <!-- 图片上传 -->
+                        <div class="form-group">
+                            <label for="section2-image">上传内容图片</label>
+                            <input type="file" id="section2-image" accept="image/*" class="section-image-upload">
+                        </div>
                     </div>
                     
                     <!-- 第三部分内容 -->
                     <div class="form-group section-input" data-section="3">
                         <label>第三部分内容</label>
+                        <!-- 主标题和副标题 -->
+                        <div class="form-group">
+                            <label for="section3-main-title">主标题</label>
+                            <input type="text" id="section3-main-title" placeholder="输入主标题" value="总体满意度">
+                        </div>
+                        <div class="form-group">
+                            <label for="section3-secondary-title">副标题</label>
+                            <input type="text" id="section3-secondary-title" placeholder="输入副标题" value="多维度客户满意度数据展示">
+                        </div>
                         <div class="title-with-emoji">
-                            <input type="text" id="section3-title" placeholder="输入第三部分标题" value="好实用">
+                            <input type="text" id="section3-title" placeholder="输入内容标题" value="好实用">
                             <select id="section3-emoji" class="emoji-select">
                                 <option value="">无表情</option>
                                 <option value="📊">📊</option>
@@ -82,10 +126,17 @@
                                 <option value="💯">💯</option>
                                 <option value="✅">✅</option>
                                 <option value="🚀">🚀</option>
+                                <option value="😊">😊</option>
                             </select>
                         </div>
                         <textarea id="section3-content" placeholder="输入第三部分内容">● 项目进展更加透明：文档、任务、进度一目了然
 ● 更高效的管理模式：聚焦关键，精准把控</textarea>
+                        
+                        <!-- 图片上传 -->
+                        <div class="form-group">
+                            <label for="section3-image">上传内容图片</label>
+                            <input type="file" id="section3-image" accept="image/*" class="section-image-upload">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -122,12 +173,27 @@
                 
                 <div class="form-group">
                     <label for="poster-width">海报宽度 (像素)</label>
-                    <input type="number" id="poster-width" value="400" min="300" max="800">
+                    <input type="number" id="poster-width" value="450" min="300" max="800">
                 </div>
                 
                 <div class="form-group">
                     <label for="text-color">文字颜色</label>
                     <input type="color" id="text-color" value="#333333">
+                </div>
+
+                <div class="form-group">
+                    <label for="section-width">内容部分宽度 (%)</label>
+                    <input type="number" id="section-width" value="90" min="50" max="100">
+                </div>
+
+                <div class="form-group">
+                    <label for="section-border-color">内容部分边框颜色</label>
+                    <input type="color" id="section-border-color" value="#1E88E5">
+                </div>
+
+                <div class="form-group">
+                    <label for="section-image-border-color">图片边框颜色</label>
+                    <input type="color" id="section-image-border-color" value="#1E88E5">
                 </div>
             </div>
             
