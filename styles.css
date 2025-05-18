@@ -243,9 +243,30 @@ button:hover {
     margin-bottom: 10px;
 }
 
+.poster-subtitle-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0 32px 0;
+    width: 100%;
+}
+
+.poster-subtitle-line {
+    flex: 1;
+    height: 2px;
+    max-width: 60px;
+    background: linear-gradient(90deg, rgba(33,150,243,0.10) 0%, rgba(33,150,243,0.25) 100%);
+    border-radius: 1px;
+    margin: 0 12px;
+}
+
 .poster-subtitle {
-    font-size: 16px;
-    opacity: 0.9;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: #0d47a1;
+    letter-spacing: 3px;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .poster-logo {
@@ -412,4 +433,61 @@ button:hover {
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
+
+.poster-logo-abs {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    z-index: 10;
+}
+
+.poster-title-art {
+    font-family: 'Poppins','PingFang SC','Microsoft YaHei',sans-serif;
+    font-size: 3.2rem;
+    font-weight: 900;
+    background: linear-gradient(180deg, #0057d9 0%, #00c6fb 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: block;
+    text-shadow:
+        0 10px 32px rgba(0,87,217,0.25),
+        0 2px 0 #e3f2fd,
+        0 4px 12px #0057d9,
+        0 1px 0 #1976d2,
+        0 0 12px #00c6fb,
+        2px 2px 0 #003366;
+    -webkit-text-stroke: 1.5px #e3f2fd;
+    margin-bottom: 10px;
+    text-align: center;
+    letter-spacing: 3px;
+    white-space: pre-line;
+    word-break: break-all;
+    line-height: 1.05;
+}
+
+.poster-header-img-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    background: radial-gradient(circle at 50% 60%, #e3f2fd 40%, #b3e0ff 80%, transparent 100%);
+    border-radius: 24px;
+    padding: 24px 0 12px 0;
+    position: relative;
+}
+
+.poster-header-main-img {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    max-height: 260px;
+    border-radius: 16px;
+    object-fit: contain;
+    box-shadow: 0 8px 32px 0 rgba(33,150,243,0.10);
 }
