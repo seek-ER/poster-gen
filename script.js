@@ -262,11 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 添加页脚
         posterHTML += `
-                <div class="poster-footer">
-                    数据可视化海报生成器 · ${new Date().getFullYear()}
-                </div>
-            </div>
-        `;
+            <div class=\"poster-footer\">\n                <svg class=\"footer-wave\" viewBox=\"0 0 1000 80\" preserveAspectRatio=\"none\">\n                    <defs>\n                        <linearGradient id=\"footerGradient\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n                            <stop offset=\"0%\" stop-color=\"#1976d2\"/>\n                            <stop offset=\"100%\" stop-color=\"#42a5f5\"/>\n                        </linearGradient>\n                    </defs>\n                    <path d=\"M0,80 Q500,0 1000,80 L1000,0 L0,0 Z\" fill=\"url(#footerGradient)\"/>\n                </svg>\n                <div class=\"poster-footer-content\">\n                    <img src=\"碧服底标.png\" alt=\"底标\" class=\"poster-footer-logo\">\n                </div>\n            </div>\n        `;
 
         // 渲染到容器
         posterContainer.innerHTML = posterHTML;
