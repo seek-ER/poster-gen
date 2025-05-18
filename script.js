@@ -182,6 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const sectionWidth = document.getElementById('section-width').value || 90;
         const sectionBorderColor = document.getElementById('section-border-color').value;
         const sectionImageBorderColor = document.getElementById('section-image-border-color').value;
+        const sectionTitleWidth = document.getElementById('section-title-width').value || 96;
         
         // 获取内容部分的数量
         const sectionsCount = document.querySelectorAll('.section-input').length;
@@ -218,24 +219,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const sectionImage = sectionImageUrls[i] || null;
             
             posterHTML += `
-                <div class="poster-section" style="width: ${sectionWidth}%; border: 1px solid ${sectionBorderColor};">
-                    <div class="section-main-title" style="background-color: ${themeColor};">
-                        <span class="section-number" style="color: ${themeColor}; border: 2px solid ${themeColor};">${String(i).padStart(2, '0')}</span>
-                        <div class="section-main-title-text">${mainTitle}</div>
+                <div class="section-title-group">
+                    <div class="section-main-title" style="width: ${sectionTitleWidth}%; background: linear-gradient(90deg, #0066FF 0%, #3BB3FF 100%);">
+                        <span class="section-number">${String(i).padStart(2, '0')}</span>
+                        <div class="section-main-title-texts">
+                            <div class="section-main-title-text">${mainTitle}</div>
+                            <div class="section-main-subtitle-text">${secondaryTitle}</div>
+                        </div>
                     </div>
-                    <div class="section-secondary-title">${secondaryTitle}</div>
-                    <div class="section-title">
-                        ${sectionTitle}
-                        ${sectionEmoji ? `<span class="section-emoji">${sectionEmoji}</span>` : ''}
+                    <div class="poster-section" style="width: ${sectionWidth}%; border: 1px solid ${sectionBorderColor};">
+                        <div class="section-title">${sectionTitle}${sectionEmoji ? `<span class="section-emoji">${sectionEmoji}</span>` : ''}</div>
+                        ${sectionContent ? `<div class="section-content">${formatContent(sectionContent)}</div>` : ''}
+                        ${sectionImage ? `<div class="section-image-container">
+                            <img src="${sectionImage}" class="section-image" alt="内容图片" style="border-color: ${sectionImageBorderColor};">
+                        </div>` : ''}
                     </div>
-                    <div class="section-content">
-                        ${formatContent(sectionContent)}
-                    </div>
-                    ${sectionImage ? `
-                    <div class="section-image-container">
-                        <img src="${sectionImage}" class="section-image" alt="内容图片" style="border-color: ${sectionImageBorderColor};">
-                    </div>
-                    ` : ''}
                 </div>
             `;
         }
@@ -339,6 +337,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     document.getElementById('section-image-border-color').addEventListener('input', function() {
+        generateBtn.click();
+    });
+    
+    document.getElementById('section-title-width').addEventListener('input', function() {
         generateBtn.click();
     });
     
