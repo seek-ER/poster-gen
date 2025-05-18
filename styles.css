@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.poster-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.section {
+    flex: 1;
+    min-width: 300px;
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"], textarea, input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.title-with-emoji {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.title-with-emoji input[type="text"] {
+    flex: 1;
+}
+
+.emoji-select {
+    width: 80px;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 18px;
+    background-color: white;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+input[type="color"] {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 10px 0;
+}
+
+.actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #1E88E5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1565C0;
+}
+
+#download-btn {
+    background-color: #4CAF50;
+}
+
+#download-btn:hover {
+    background-color: #388E3C;
+}
+
+.poster-preview {
+    margin-top: 40px;
+}
+
+#poster-container {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    min-height: 400px;
+    overflow-x: auto;
+}
+
+/* 海报样式 */
+.poster {
+    width: 400px;
+    min-height: 700px;
+    background-color: #E3F2FD;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.poster-header {
+    background-color: #1E88E5;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.poster-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.poster-subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.poster-logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    height: 40px;
+    width: auto;
+}
+
+.poster-section {
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.section-number {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #1E88E5;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1E88E5;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.section-emoji {
+    margin-left: 8px;
+    font-size: 24px;
+}
+
+.section-content {
+    padding-left: 10px;
+}
+
+.section-content p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.poster-footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .poster-controls {
+        flex-direction: column;
+    }
+} 

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长海报生成器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>长海报生成器</h1>
+        <div class="poster-controls">
+            <div class="section">
+                <h2>海报内容设置</h2>
+                <div class="form-group">
+                    <label for="poster-title">标题</label>
+                    <input type="text" id="poster-title" placeholder="输入海报标题" value="一看让管理更从容">
+                </div>
+                <div class="form-group">
+                    <label for="poster-subtitle">副标题</label>
+                    <input type="text" id="poster-subtitle" placeholder="输入海报副标题" value="项目看板面壁来袭！">
+                </div>
+                
+                <!-- 第一部分内容 -->
+                <div class="form-group">
+                    <label>第一部分内容</label>
+                    <div class="title-with-emoji">
+                        <input type="text" id="section1-title" placeholder="输入第一部分标题" value="项目看板">
+                        <select id="section1-emoji" class="emoji-select">
+                            <option value="">无表情</option>
+                            <option value="📊" selected>📊</option>
+                            <option value="📈">📈</option>
+                            <option value="📉">📉</option>
+                            <option value="📋">📋</option>
+                            <option value="🔍">🔍</option>
+                            <option value="📱">📱</option>
+                        </select>
+                    </div>
+                    <textarea id="section1-content" placeholder="输入第一部分内容">● 直观数据展示：直观、清晰、简明，便于浏览
+● 功能全面：项目进度、计划、资源、风险等维度多角度展示
+● 多维度透视：数据钻取、筛选、 排序等功能一应俱全</textarea>
+                </div>
+                
+                <!-- 第二部分内容 -->
+                <div class="form-group">
+                    <label>第二部分内容</label>
+                    <div class="title-with-emoji">
+                        <input type="text" id="section2-title" placeholder="输入第二部分标题" value="数据代">
+                        <select id="section2-emoji" class="emoji-select">
+                            <option value="">无表情</option>
+                            <option value="📊">📊</option>
+                            <option value="📈" selected>📈</option>
+                            <option value="📉">📉</option>
+                            <option value="📋">📋</option>
+                            <option value="💡">💡</option>
+                            <option value="🔍">🔍</option>
+                        </select>
+                    </div>
+                    <textarea id="section2-content" placeholder="输入第二部分内容">● 数据样样代表：更丰富维度数据，更直观趋势反映
+● 数据多维展示：不同维度切换分析 一键掌握项目全貌</textarea>
+                </div>
+                
+                <!-- 第三部分内容 -->
+                <div class="form-group">
+                    <label>第三部分内容</label>
+                    <div class="title-with-emoji">
+                        <input type="text" id="section3-title" placeholder="输入第三部分标题" value="好实用">
+                        <select id="section3-emoji" class="emoji-select">
+                            <option value="">无表情</option>
+                            <option value="📊">📊</option>
+                            <option value="📈">📈</option>
+                            <option value="👍" selected>👍</option>
+                            <option value="💯">💯</option>
+                            <option value="✅">✅</option>
+                            <option value="🚀">🚀</option>
+                        </select>
+                    </div>
+                    <textarea id="section3-content" placeholder="输入第三部分内容">● 项目进展更加透明：文档、任务、进度一目了然
+● 更高效的管理模式：聚焦关键，精准把控</textarea>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>样式设置</h2>
+                <div class="form-group">
+                    <label for="theme-color">主题颜色</label>
+                    <input type="color" id="theme-color" value="#1E88E5">
+                </div>
+                <div class="form-group">
+                    <label for="background-color">背景颜色</label>
+                    <input type="color" id="background-color" value="#E3F2FD">
+                </div>
+                <div class="form-group">
+                    <label for="logo-upload">上传Logo</label>
+                    <input type="file" id="logo-upload" accept="image/*">
+                </div>
+                
+                <div class="form-group">
+                    <label for="poster-width">海报宽度 (像素)</label>
+                    <input type="number" id="poster-width" value="400" min="300" max="800">
+                </div>
+                
+                <div class="form-group">
+                    <label for="text-color">文字颜色</label>
+                    <input type="color" id="text-color" value="#333333">
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button id="generate-btn">生成海报</button>
+                <button id="download-btn">下载海报</button>
+            </div>
+        </div>
+        
+        <div class="poster-preview">
+            <h2>预览</h2>
+            <div id="poster-container">
+                <!-- 这里将显示生成的海报预览 -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
