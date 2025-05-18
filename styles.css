@@ -271,7 +271,8 @@ button:hover {
 }
 
 .section-main-title {
-    background: linear-gradient(90deg, #0066FF 0%, #3BB3FF 100%);
+    background: linear-gradient(90deg, #0066FF 0%, #e6f2fc 100%);
+    border: 1px solid #fff;
     color: #fff;
     width: 100%;
     margin: 0 auto;
@@ -350,21 +351,22 @@ button:hover {
 }
 
 .section-title {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
-    color: #1E88E5;
+    /* color: #1E88E5; */
     margin: 15px;
     display: flex;
     align-items: center;
 }
 
 .section-emoji {
-    margin-left: 8px;
+    margin-right: 10px;
     font-size: 24px;
 }
 
 .section-content {
     padding: 0 15px 15px;
+    font-size: 12px;
 }
 
 .section-content p {

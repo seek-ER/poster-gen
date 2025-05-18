@@ -228,7 +228,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                     <div class="poster-section" style="width: ${sectionWidth}%; border: 1px solid ${sectionBorderColor};">
-                        <div class="section-title">${sectionTitle}${sectionEmoji ? `<span class="section-emoji">${sectionEmoji}</span>` : ''}</div>
+                        <div class="section-title">
+                            ${sectionEmoji ? `<span class=\"section-emoji\">${sectionEmoji}</span>` : ''}${sectionTitle}
+                        </div>
                         ${sectionContent ? `<div class="section-content">${formatContent(sectionContent)}</div>` : ''}
                         ${sectionImage ? `<div class="section-image-container">
                             <img src="${sectionImage}" class="section-image" alt="内容图片" style="border-color: ${sectionImageBorderColor};">
